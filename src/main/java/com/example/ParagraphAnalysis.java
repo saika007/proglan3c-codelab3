@@ -94,4 +94,8 @@ class ParagraphAnalyzer {
     private String getParagraphLengthType() {
         return getSentenceCount() > 2 ? "This is a long paragraph." : "This is a short paragraph.";
     }
+
+    private int tambah(int a, int b) {
+        return a + b;
+    }
 }
