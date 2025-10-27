@@ -1,8 +1,8 @@
 public class MenuItem {
-    private String name;
-    private String painter;
-    private String description;
-    private double price;
+    private final String name;
+    private final String painter;
+    private final String description;
+    private final double price;
     private int quantity;
     private boolean isAvailable;
 
@@ -37,10 +37,6 @@ public class MenuItem {
 
     public double getPrice() {
         return price;
-    }
-
-    public int getQuantity() {
-        return quantity;
     }
 
     public boolean isAvailable() {

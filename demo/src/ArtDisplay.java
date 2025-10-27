@@ -2,10 +2,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ArtDisplay {
-    private ArrayList<MenuItem> arts = new ArrayList<>();
-    private ArrayList<MenuItem> cart = new ArrayList<>();
-    private final double TAX_RATE = 0.2;
-    private Scanner sc = new Scanner(System.in);
+    private final ArrayList<MenuItem> arts = new ArrayList<>();
+    private final ArrayList<MenuItem> cart = new ArrayList<>();
+    private final Scanner sc = new Scanner(System.in);
 
     public ArtDisplay() {
         arts.add(new MenuItem("Starry Night", "Vincent van Gogh",
@@ -101,7 +100,7 @@ public class ArtDisplay {
                 for (MenuItem art : arts) {
                     if (art.getName().equals(item.getName())) {
                         art.markAsSold();
-                        art = new MenuItem(art.getName(), art.getPainter(), art.getDescription(), art.getPrice());
+                        new MenuItem(art.getName(), art.getPainter(), art.getDescription(), art.getPrice());
                     }
                 }
             }
@@ -114,6 +113,7 @@ public class ArtDisplay {
         for (MenuItem item : cart) {
             total += item.getSubtotal();
         }
+        double TAX_RATE = 0.2;
         return total + (total * TAX_RATE);
     }
 
@@ -143,18 +143,14 @@ public class ArtDisplay {
             shop.sc.nextLine();
 
             switch (choice) {
-                case 1:
-                    shop.listArts();
-                    break;
-                case 2:
-                    shop.placeOrder();
-                    break;
-                case 3:
+                case 1 -> shop.listArts();
+                case 2 -> shop.placeOrder();
+                case 3 -> {
                     System.out.println("Terima kasih telah mengunjungi Mahakarya Maharupa Makmur!");
                     shop.sc.close();
                     return;
-                default:
-                    System.out.println("Pilihan tidak valid. Coba lagi.");
+                }
+                default -> System.out.println("Pilihan tidak valid. Coba lagi.");
             }
         }
     }
